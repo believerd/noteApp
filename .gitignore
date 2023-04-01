@@ -10,6 +10,7 @@
 
 #development
 /requests
+.env
 
 # misc
 .DS_Store
