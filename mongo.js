@@ -23,7 +23,7 @@ const Note = mongoose.model('Note', noteSchema)
 //     content: 'HTML is Easy?',
 //     important: true,
 // })
-// 
+//
 // note.save().then(result => {
 //     console.log('note saved!')
 //     mongoose.connection.close()
