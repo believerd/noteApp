@@ -8,10 +8,16 @@ const api = supertest(app)
 
 beforeEach(async () => {
   await Note.deleteMany({})
-  let noteObject = new Note(helper.initialNotes[0])
-  await noteObject.save()
-  noteObject = new Note(helper.initialNotes[1])
-  await noteObject.save()
+  // When order is not important
+  // const noteObjects = helper.initialNotes.map(note => new Note(note))
+  // const promiseArray = noteObjects.map(note => note.save())
+  // await Promise.all(promiseArray)
+
+  // When order is important
+  for (let note of helper.initialNotes) {
+    let noteObject = new Note(note)
+    await noteObject.save()
+  }
 }, 10000)
 
 test('the first note is about HTTP', async () => {
