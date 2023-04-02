@@ -4,6 +4,11 @@ const cors = require('cors')
 const morgan = require('morgan')
 const notesRouter = require('./controllers/notes')
 const middleware = require('./utils/middleware')
+const database = require('./utils/database')
+
+if (!database.isConnected()) {
+  database.connect()
+}
 
 app.use(cors())
 app.use(express.static('build'))
